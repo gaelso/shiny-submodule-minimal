@@ -4,10 +4,13 @@ app <- function(...) {
   ## GLOBAL #################################################################
 
   library(shiny)
+  library(shinyjs)
   library(tidyverse)
 
   ## UI #####################################################################
   ui <- fluidPage(
+
+    shinyjs::useShinyjs(),
 
     titlePanel(
       title = "Testing modules and sub-modules",
@@ -15,8 +18,8 @@ app <- function(...) {
     ),
 
     navbarPage(
-      id = "navbar", title = NULL, selected = "home",
-      tabPanel(title = "User input", value = "user_input", icon = icon("campground"), mod1_UI("tab_user_input")        ),
+      id = "navbar", title = NULL, selected = "user_input",
+      tabPanel(title = "User input", value = "user_input", icon = icon("campground"), mod1_UI("tab_user_input")),
       tabPanel(title = "More input", value = "more_input", icon = icon("map")       , mod2_UI("tab_more_input")),
       tabPanel(title = "Results"    , value = "results"  , icon = icon("table")     , mod3_UI("tab_results"))
     ) ## END navbarPage
@@ -28,8 +31,8 @@ app <- function(...) {
 
     ## + Initiate reactive values list to be passed between modules =========
     rv <- reactiveValues(
-      mod1 <- reactiveValues(),
-      mod2 <- reactiveValues()
+      mod1 = reactiveValues(),
+      mod2 = reactiveValues()
     )
 
     ## + Module server functions ============================================

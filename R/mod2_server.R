@@ -5,7 +5,7 @@ mod2_server <- function(id, rv) {
 
     ns <- session$ns
 
-    observeEvent(input$stat_calc_mod2, {
+    observeEvent(input$start_calc_mod2, {
 
       req(rv$mod1$approach)
 
@@ -32,6 +32,7 @@ mod2_server <- function(id, rv) {
 
     output$check_cat <- renderPrint({
 
+      unique(rv$mod2$cat)
 
     })
 

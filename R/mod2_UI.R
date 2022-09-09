@@ -29,7 +29,13 @@ mod2_UI <- function(id){
           max = 4
         ),
 
-        actionButton(inputId = ns("start_calc_mod2"), label = "Launch calculations")
+        actionButton(inputId = ns("start_calc_mod2"), label = "Launch calculations"),
+
+        br(),
+
+        p("Categories selected:"),
+
+        verbatimTextOutput(ns("check_cat"))
 
       ),
 
