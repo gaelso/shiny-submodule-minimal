@@ -10,6 +10,9 @@ mod1sub_a2_server <- function(id, rv) {
 
       observeEvent(input$start_calc_a2, {
 
+        ## Reset mod2 data
+        rv$mod2 <- NULL
+
         rv$mod1$data_a2 <- tibble(
           id = 1:input$a2_n,
           value = rpois(n = input$a2_n, lambda = input$a2_lambda)

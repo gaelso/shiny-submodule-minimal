@@ -10,6 +10,9 @@ mod1sub_a1_server <- function(id, rv) {
 
       observeEvent(input$start_calc_a1, {
 
+        ## Reset mod2 data
+        rv$mod2 <- NULL
+
         rv$mod1$data_a1 <- tibble(
           id = 1:input$a1_n,
           value = rnorm(n = input$a1_n, mean = input$a1_mean, sd = input$a1_sd)

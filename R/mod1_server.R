@@ -29,6 +29,11 @@ mod1_server <- function(id, rv) {
 
         }
 
+        rv$mod1$data_a1 <- NULL
+        rv$mod1$data_a2 <- NULL
+        rv$mod2         <- NULL
+
+
         })
 
       mod1sub_a1_server("user_input_a1", rv = rv)

@@ -7,6 +7,19 @@ app <- function(...) {
   library(shinyjs)
   library(tidyverse)
 
+  source("R/mod1sub_a1_UI.R")
+  source("R/mod1sub_a1_server.R")
+  source("R/mod1sub_a2_UI.R")
+  source("R/mod1sub_a2_server.R")
+  source("R/mod1_UI.R")
+  source("R/mod1_server.R")
+  source("R/mod2_UI.R")
+  source("R/mod2_server.R")
+  source("R/mod3_UI.R")
+  source("R/mod3_server.R")
+
+
+
   ## UI #####################################################################
   ui <- fluidPage(
 
