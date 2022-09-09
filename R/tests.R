@@ -115,3 +115,42 @@ mod1 <- function(...) {
 } ## END function mod1()
 
 
+
+##
+## Test module 2 ############################################################
+##
+
+source("R/mod2_UI.R")
+source("R/mod2_server.R")
+
+
+mod2 <- function(...) {
+
+  library(shiny)
+  library(shinyjs)
+  library(tidyverse)
+
+  ui <- fluidPage(
+
+    shinyjs::useShinyjs(),
+
+    mod2_UI(id = "more_input")
+
+  )
+
+  server <- function(input, output, session) {
+
+    ## + Initiate reactive values list to be passed between modules =========
+    rv <- reactiveValues(
+      mod1 = reactiveValues(approach = "a1", data_a1 = tibble(id = 1:102, value = rnorm(102, 0, 1))),
+      mod2 = reactiveValues()
+    )
+
+    ## + Module server functions ============================================
+    mod2_server("more_input", rv = rv)
+
+  }
+
+  shinyApp(ui, server, ...)
+
+} ## END function mod2()
